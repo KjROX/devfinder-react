@@ -24,14 +24,10 @@ body {
   font-family: "Space Mono", monospace;
   background-color: var(--background-color);
 }
-#root {
+.full {
   min-height: 100vh;
-}
-
-.main {
-  /* background: #141d2f; */
+  width: 100%;
   background-color: var(--background-color);
-  /* height: 60%; */
 }
 
 header {
@@ -56,6 +52,7 @@ header div {
 
 header div h2 {
   color: grey;
+  cursor: pointer;
 }
 
 .search {
@@ -106,8 +103,8 @@ header div h2 {
 
 .search button {
   position: absolute;
-  right: 2%;
-  top: 13%;
+  right: 0%;
+  top: 0%;
   padding: 1rem 1.7rem;
   background-color: #409bff;
   color: white;
@@ -206,16 +203,12 @@ header div h2 {
 }
 
 @media (min-width: 810px) {
-  #root {
+  .full {
     padding: 3rem 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .main {
-    width: 60%;
-    padding: 0rem 3rem;
+    width: 100%;
   }
 
   .content {
@@ -233,6 +226,10 @@ header div h2 {
 
   .flex {
     font-size: 1.5rem;
+  }
+  .search button {
+    top: 0%;
+    right: 0%;
   }
 }
 
@@ -277,6 +274,7 @@ header div h2 {
 
   .search button {
     top: 23%;
+    right: 2%;
   }
 
   .flex {

@@ -1,12 +1,21 @@
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <h1>
         <b>devfinder</b>
       </h1>
       <div>
-        <h2>DARK</h2>
-        <img src="./moon.svg" alt="" />
+        <h2 onClick={props.changeTheme}>
+          {props.webTheme === "DarkMode" ? "Light" : "Dark"}
+        </h2>
+        <img
+          src={
+            props.webTheme === "DarkMode"
+              ? `../assets/icons8-sun.svg`
+              : `../assets/moon.svg`
+          }
+          alt=""
+        />
       </div>
     </header>
   );

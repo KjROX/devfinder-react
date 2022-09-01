@@ -11,11 +11,12 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div className="search">
-      <div className="img-search">
-        <img src="./search.svg" alt="" />
-      </div>
-      <form action="submit" onSubmit={submitHandler}>
+    <form action="submit" onSubmit={submitHandler}>
+      <div className="search">
+        <div className="img-search">
+          <img src="./search.svg" alt="" />
+        </div>
+
         <input
           type="text"
           name="search"
@@ -24,8 +25,8 @@ const SearchBar = (props) => {
         />
         <span className="error"></span>
         <button>Search</button>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 export default SearchBar;

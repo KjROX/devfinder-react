@@ -5,11 +5,15 @@ import SearchBar from "./components/SearchBar";
 import { useState, useEffect } from "react";
 
 function App() {
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
+
   const [enteredSearchResult, setEnteredSearchResult] = useState({});
 
   useEffect(() => {
-    setEnteredSearchResult(fetchApi("kjrox"));
-  }, [fetchApi]);
+    fetchApi("kjrox").then((data) => {
+      setEnteredSearchResult(data);
+    });
+  }, []);
 
   function dateConverter(string) {
     const monthNames = [
@@ -34,7 +38,6 @@ function App() {
     ];
     return arr;
   }
-
   async function fetchApi(search) {
     const response = await fetch(`https://api.github.com/users/${search}`, {
       method: "GET",
@@ -65,17 +68,28 @@ function App() {
       return;
     }
   }
-  const searchHandler = (enteredUsername) => {
-    const searchResult = fetchApi(enteredUsername);
-    // setEnteredSearchResult(searchResult);
-    console.log(searchResult);
+  const searchHandler = async (enteredUsername) => {
+    const searchResult = await fetchApi(enteredUsername);
+    setEnteredSearchResult(searchResult);
+  };
+
+  const themeChanger = () => {
+    if (theme === "darkMode") {
+      setTheme("lightMode");
+      localStorage.setItem("theme", "lightMode");
+    } else {
+      setTheme("darkMode");
+      localStorage.setItem("theme", "darkMode");
+    }
   };
 
   return (
-    <div className="main">
-      <Header />
-      <SearchBar onSearch={searchHandler} />
-      <Content searchedResult={enteredSearchResult} />
+    <div className={`full ${theme === "darkMode" ? "dark-theme" : ""}`}>
+      <div>
+        <Header webTheme={theme} changeTheme={themeChanger} />
+        <SearchBar onSearch={searchHandler} />
+        <Content searchedResult={enteredSearchResult} />
+      </div>
     </div>
   );
 }

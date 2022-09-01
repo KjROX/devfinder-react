@@ -5,33 +5,44 @@ const Content = (props) => {
       <div className="resolveHandler">
         <div className="user-infos">
           <div className="user-infos-img">
-            <img src={dataOfContent.profileImage} alt="Profile Look" />
+            <img src={dataOfContent?.profileImage} alt="Profile Look" />
           </div>
           <div className="user-infos-names">
-            <h3>{dataOfContent.name}</h3>
-            <a href={dataOfContent.usernameLink}>{dataOfContent.username}</a>
+            <h3>{dataOfContent?.name}</h3>
+            <a
+              href={dataOfContent?.usernameLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {dataOfContent?.username}
+            </a>
             <p>
-              Joined <span className="day">{dataOfContent.joiningDate[0]}</span>
-              <span className="month">{dataOfContent.joiningDate[1]}</span>
-              <span className="year">{dataOfContent.joiningDate[2]}</span>
+              Joined{" "}
+              <span className="day">{dataOfContent?.joiningDate?.[0]}</span>
+              <span className="month">{dataOfContent?.joiningDate?.[1]}</span>
+              <span className="year">{dataOfContent?.joiningDate?.[2]}</span>
             </p>
           </div>
         </div>
-        <p className="user-details">{dataOfContent.bio}</p>
+        <p className="user-details">{dataOfContent?.bio}</p>
         <div className="repos">
           <h4>Repos</h4>
           <h4>Followers</h4>
           <h4>Following</h4>
-          <p className="repo-num">{dataOfContent.repositories}</p>
-          <p className="followers-num">{dataOfContent.followers}</p>
-          <p className="following-num">{dataOfContent.folloing}</p>
+          <p className="repo-num">{dataOfContent?.repositories}</p>
+          <p className="followers-num">{dataOfContent?.followers}</p>
+          <p className="following-num">{dataOfContent?.folloing}</p>
         </div>
         <div className="links">
           <div className="locationEl link">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
               <path d="M12.797 3.425C11.584 1.33 9.427.05 7.03.002a7.483 7.483 0 00-.308 0C4.325.05 2.17 1.33.955 3.425a6.963 6.963 0 00-.09 6.88l4.959 9.077.007.012c.218.38.609.606 1.045.606.437 0 .828-.226 1.046-.606l.007-.012 4.96-9.077a6.963 6.963 0 00-.092-6.88zm-5.92 5.638c-1.552 0-2.813-1.262-2.813-2.813s1.261-2.812 2.812-2.812S9.69 4.699 9.69 6.25 8.427 9.063 6.876 9.063z"></path>
             </svg>
-            <p>{dataOfContent.location}</p>
+            <p>
+              {dataOfContent?.location
+                ? dataOfContent.location
+                : "NOT-AVAILABLE"}
+            </p>
           </div>
           <div className="profileLinkEl link">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
@@ -40,8 +51,12 @@ const Content = (props) => {
                 <path d="M13.439 13.75a.401.401 0 00.006-.003c.659-1.204.788-2.586.48-3.933l-.002.002-.001-.001a5.434 5.434 0 00-2.19-3.124.3.3 0 00-.333.015c-.553.448-1.095 1.021-1.452 1.754a.243.243 0 00.096.317c.415.24.79.593 1.04 1.061h.001c.196.33.388.958.263 1.632-.116.894-1.019 1.714-1.736 2.453-.546.559-1.935 1.974-2.49 2.542a2.6 2.6 0 01-3.666.037 2.6 2.6 0 01-.038-3.666l1.521-1.564A.266.266 0 005 11.004c-.338-1.036-.43-2.432-.217-3.51.006-.03-.031-.049-.053-.027l-3.179 3.245c-2.083 2.126-2.066 5.588.04 7.693 2.125 2.083 5.57 2.048 7.653-.078.723-.81 3.821-3.678 4.195-4.577z"></path>
               </g>
             </svg>
-            <a href={dataOfContent.blog} target="_blank" rel="noreferrer">
-              {dataOfContent.blog}
+            <a
+              href={dataOfContent?.blog ? dataOfContent.blog : null}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {dataOfContent?.blog ? dataOfContent.blog : "NOT-AVAILABLE"}
             </a>
           </div>
           <div className="twitterProfileEl link">
@@ -50,11 +65,17 @@ const Content = (props) => {
             </svg>
 
             <a
-              href={`https://twitter.com/${dataOfContent.twitterUsername}`}
+              href={
+                dataOfContent.twitterUsername
+                  ? `https://twitter.com/${dataOfContent?.twitterUsername}`
+                  : null
+              }
               target="_blank"
               rel="noreferrer"
             >
-              {dataOfContent.twitterUsername}
+              {dataOfContent?.twitterUsername
+                ? dataOfContent.twitterUsername
+                : "NOT-AVAILABLE"}
             </a>
           </div>
           <div className="companyEl link">
@@ -63,7 +84,9 @@ const Content = (props) => {
                 <path d="M10.858 1.558L1.7.167A1.477 1.477 0 00.517.492 1.49 1.49 0 000 1.608v17.559c0 .458.375.833.833.833h2.709v-4.375c0-.808.65-1.458 1.458-1.458h2.083c.809 0 1.459.65 1.459 1.458V20h3.541V3a1.46 1.46 0 00-1.225-1.442zM4.583 12.292h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm4.167 7.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zM18.85 9.035l-5.933-1.242V20h5.625A1.46 1.46 0 0020 18.542V10.46c0-.688-.47-1.274-1.15-1.425zM16.875 17.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25z"></path>
               </g>
             </svg>
-            <p>{dataOfContent.company}</p>
+            <p>
+              {dataOfContent?.company ? dataOfContent.company : "NOT-AVAILABLE"}
+            </p>
           </div>
         </div>
       </div>
