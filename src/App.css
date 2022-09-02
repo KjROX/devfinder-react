@@ -52,7 +52,10 @@ header div {
 
 header div h2 {
   color: grey;
-  cursor: pointer;
+}
+header div img {
+  height: 2rem;
+  width: 2rem;
 }
 
 .search {
@@ -201,6 +204,13 @@ header div h2 {
   font-size: 1rem;
   color: var(--logo-color);
 }
+.rejectHandler {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--grey-white);
+  font-size: 2rem;
+}
 
 @media (min-width: 810px) {
   .full {
@@ -230,6 +240,9 @@ header div h2 {
   .search button {
     top: 0%;
     right: 0%;
+  }
+  .rejectHandler {
+    font-size: 3rem;
   }
 }
 
@@ -279,5 +292,8 @@ header div h2 {
 
   .flex {
     font-size: 2rem;
+  }
+  .rejectHandler {
+    font-size: 5rem;
   }
 }

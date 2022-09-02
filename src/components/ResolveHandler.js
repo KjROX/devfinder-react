@@ -1,4 +1,4 @@
-const Content = (props) => {
+const ResolveHandler = (props) => {
   const dataOfContent = props.searchedResult;
   return (
     <div className="content">
@@ -29,9 +29,15 @@ const Content = (props) => {
           <h4>Repos</h4>
           <h4>Followers</h4>
           <h4>Following</h4>
-          <p className="repo-num">{dataOfContent?.repositories}</p>
-          <p className="followers-num">{dataOfContent?.followers}</p>
-          <p className="following-num">{dataOfContent?.folloing}</p>
+          <p className="repo-num">
+            {dataOfContent.repositories ? dataOfContent?.repositories : "0"}
+          </p>
+          <p className="followers-num">
+            {dataOfContent.followers ? dataOfContent?.followers : "0"}
+          </p>
+          <p className="following-num">
+            {dataOfContent.folloing ? dataOfContent?.folloing : "0"}
+          </p>
         </div>
         <div className="links">
           <div className="locationEl link">
@@ -93,4 +99,4 @@ const Content = (props) => {
     </div>
   );
 };
-export default Content;
+export default ResolveHandler;

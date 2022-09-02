@@ -6,11 +6,11 @@ const Header = (props) => {
       </h1>
       <div>
         <h2 onClick={props.changeTheme}>
-          {props.webTheme === "DarkMode" ? "Light" : "Dark"}
+          {props.webTheme === "darkMode" ? "Light" : "Dark"}
         </h2>
         <img
           src={
-            props.webTheme === "DarkMode"
+            props.webTheme === "darkMode"
               ? `../assets/icons8-sun.svg`
               : `../assets/moon.svg`
           }

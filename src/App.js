@@ -1,11 +1,13 @@
 import "./App.css";
-import Content from "./components/Content";
+import ResolveHandler from "./components/ResolveHandler";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import { useState, useEffect } from "react";
+import RejectHandler from "./components/RejectHandler";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const [error, setError] = useState(false);
 
   const [enteredSearchResult, setEnteredSearchResult] = useState({});
 
@@ -64,7 +66,7 @@ function App() {
       };
       return searchResult;
     } else {
-      console.log(data.message);
+      setError(true);
       return;
     }
   }
@@ -88,7 +90,10 @@ function App() {
       <div>
         <Header webTheme={theme} changeTheme={themeChanger} />
         <SearchBar onSearch={searchHandler} />
-        <Content searchedResult={enteredSearchResult} />
+        <div className="content">
+          {!error && <ResolveHandler searchedResult={enteredSearchResult} />}
+          {error && <RejectHandler />}
+        </div>
       </div>
     </div>
   );
