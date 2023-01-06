@@ -35,7 +35,7 @@ const ResolveHandler = (props) => {
           {dataOfContent.followers ? dataOfContent?.followers : "0"}
         </p>
         <p className="following-num">
-          {dataOfContent.folloing ? dataOfContent?.folloing : "0"}
+          {dataOfContent.following ? dataOfContent?.following : "0"}
         </p>
       </div>
       <div className="links">
