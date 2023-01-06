@@ -11,8 +11,8 @@ const Header = (props) => {
         <img
           src={
             props.webTheme === "darkMode"
-              ? `../assets/icons8-sun.svg`
-              : `../assets/moon.svg`
+              ? `./assets/icons8-sun.svg`
+              : `./assets/moon.svg`
           }
           alt=""
         />
