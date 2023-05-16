@@ -52,6 +52,7 @@ header div {
 
 header div h2 {
   color: grey;
+  cursor: pointer;
 }
 header div img {
   height: 2rem;
