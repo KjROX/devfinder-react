@@ -4,10 +4,8 @@ const Header = (props) => {
       <h1>
         <b>devfinder</b>
       </h1>
-      <div>
-        <h2 onClick={props.changeTheme}>
-          {props.webTheme === "darkMode" ? "Light" : "Dark"}
-        </h2>
+      <div onClick={props.changeTheme}>
+        <h2>{props.webTheme === "darkMode" ? "Light" : "Dark"}</h2>
         <img
           src={
             props.webTheme === "darkMode"
